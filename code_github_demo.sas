@@ -1,14 +1,14 @@
 
-* Fit a log-risk regression model;
+* Fit a linear-risk regression model;
 PROC GENMOD data =D.EPID716_3A1 ;
-MODEL preterm = mage2 mage2*mage2/ link = log dist = binomial;
+MODEL preterm = mage2 mage2*mage2/ link = linear dist = binomial;
 	OUTPUT OUT=a2_2 pred = pred l = l95 u = u95;
 	estimate 'Risk of preterm (age 16)' int 1 mage2 16 mage2*mage2 256; * ;
     estimate 'Risk of preterm (age 26)' int 1 mage2 26 mage2*mage2 676; * ;
 	estimate 'Risk of preterm (age 40)' int 1 mage2 40; * ;
-    estimate 'RR, age 16 vs. age 26' int 0 mage2 -10; 
-	estimate 'RR, age 40 vs. age 26' int 0 mage2 14; * ;
-	title 'Log Risk Model for Simple Contnuous Variable of Age';
+    estimate 'RD, age 16 vs. age 26' int 0 mage2 -10; 
+	estimate 'RD, age 40 vs. age 26' int 0 mage2 14; * ;
+	title 'Linear Risk Model for Simple Contnuous Variable of Age';
 run;
 
 
