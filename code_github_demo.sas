@@ -9,10 +9,6 @@ proc genmod data = births descending;
 run;
 
 
-
-
-
-
 * Fit a linear-risk regression model;
 PROC GENMOD data =D.EPID716_3A1 ;
 MODEL preterm = mage2 mage2*mage2/ link = linear dist = binomial;
