@@ -1,3 +1,13 @@
+*Fit logit-risk regression model;
+
+proc genmod data = births descending;
+		model preterm = pnc5 / link = logit dist = binomial;
+
+		estimate ‘Risk unexposed' int 1 pnc5 0 ;
+		estimate ‘Risk exposed' int 1 pnc5 1 ;
+		estimate ‘OR' int 0 pnc5 1 / exp;
+run;
+
 
 * Fit a linear-risk regression model;
 PROC GENMOD data =D.EPID716_3A1 ;
