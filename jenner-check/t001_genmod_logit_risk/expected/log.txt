@@ -1,0 +1,34 @@
+1          /* cap input rows for the captured run */
+2          options obs=100;
+NOTE: Option OBS changed to 100.
+3
+4          /* mock births data standing in for the course dataset */
+5          data births;
+6            call streaminit(716);
+7            do i = 1 to 80;
+8              pnc5 = (mod(i,3) = 0);
+9              preterm = (rand('uniform') < 0.08 + 0.10*pnc5);
+10             output;
+11           end;
+12           drop i;
+13         run;
+NOTE: DATA WORK.BIRTHS
+
+
+NOTE: The data set WORK.BIRTHS has 80 observations and 2 variables.
+NOTE: DATA elapsed:
+  wall  0.00 seconds
+  cpu   0.00 seconds
+14
+15         *Fit logit-risk regression;
+16
+17         proc genmod data = births descending;
+18         		model preterm = pnc5 / link = logit dist = binomial;
+19
+20         		estimate 'Risk unexposed' intercept 1 pnc5 0 ;
+21         		estimate 'Risk exposed' intercept 1 pnc5 1 ;
+22         		estimate 'OR' intercept 0 pnc5 1 ;
+23         run;
+NOTE: PROC GENMOD data=WORK.BIRTHS
+
+NOTE: Algorithm converged.

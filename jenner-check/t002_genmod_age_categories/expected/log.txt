@@ -1,0 +1,35 @@
+1          /* cap input rows for the captured run */
+2          options obs=100;
+NOTE: Option OBS changed to 100.
+3
+4          data ages;
+5            array m{44} mage1-mage44;
+6            do i = 1 to 100;
+7              age = 14 + mod(i-1,31);
+8              do j = 1 to 44; m{j} = (j = age); end;
+9              preterm = (floor((i-1)/31) = 0);
+10             output;
+11           end;
+12           drop i j age;
+13         run;
+NOTE: DATA WORK.AGES
+
+
+NOTE: The data set WORK.AGES has 100 observations and 45 variables.
+NOTE: DATA elapsed:
+  wall  0.00 seconds
+  cpu   0.00 seconds
+14
+15         *Pull request example;
+16          PROC GENMOD data =ages ;
+17         MODEL preterm = mage14 - mage25 mage27-mage44 / link = identity dist = binomial;
+18         	OUTPUT OUT=a1_1 pred = pred l = l95 u = u95;
+19         	title 'Linear Risk Model for 31 Categories of Age';
+20         	estimate 'Risk of preterm (age 18)' intercept 1 mage18 1;*need to look at age 16, not 18;
+21         	estimate 'Risk of preterm (age 26)' intercept 1 ;
+22         	estimate 'Crude RD, age 18 vs. age 26' intercept 0 mage18 1;
+23         run;
+NOTE: PROC GENMOD data=WORK.AGES
+
+NOTE: Algorithm converged.
+NOTE: OUTPUT dataset 'WORK.A1_1' created with 100 observations.
