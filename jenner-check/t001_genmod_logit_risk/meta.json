@@ -1,0 +1,7 @@
+{
+  "bundle": "t001_genmod_logit_risk",
+  "source_file": "code_github_demo.sas",
+  "source_blob_sha": "da26f608ad3bcf54b04bf21fab6a92d73ebbd26e",
+  "source_commit": "957b89a58d200c32b49dd21251ca29f6314a3d05",
+  "notes": "PROC GENMOD model from code_github_demo.sas on mock data; 'int' spelled out as 'intercept' in ESTIMATE statements, straight quotes in labels"
+}

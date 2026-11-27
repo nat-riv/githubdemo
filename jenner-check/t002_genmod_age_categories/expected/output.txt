@@ -1,0 +1,86 @@
+                                       Linear Risk Model for 31 Categories of Age                                      1
+                                                                                   16:47 Friday, November 27, 2026
+
+                                                  The GENMOD Procedure
+                                                   Model Information     
+
+                                              Item                  Value
+                                              -----------------  --------
+                                              Response Variable   preterm
+                                              Distribution       Binomial
+                                              Link Function      Identity
+
+                                         Number of Observations Read       100
+                                         Number of Observations Used       100
+
+                                                    Response Profile            
+
+                                        Ordered Value  preterm   Total Frequency
+                                        -------------  --------  ---------------
+                                                    1  0                      69
+                                                    2  1                      31
+
+                               PROC GENMOD is modeling the probability that preterm='0'.
+
+                                   Analysis Of Maximum Likelihood Parameter Estimates                               
+
+                                                             Wald 95% Confidence Limits
+    Parameter                  DF  Estimate  Standard Error         Lower         Upper  Wald Chi-Square  Pr > ChiSq
+    ---------  --------  --------  --------  --------------  ------------  ------------  ---------------  ----------
+    Intercept                   1    0.6667          0.2722        0.1332        1.2001             6.00      0.0143
+    mage14                      1    0.0833          0.3478       -0.5983        0.7650             0.06      0.8106
+    mage15                      1    0.0833          0.3478       -0.5983        0.7650             0.06      0.8106
+    mage16                      1    0.0833          0.3478       -0.5983        0.7650             0.06      0.8106
+    mage17                      1    0.0833          0.3478       -0.5983        0.7650             0.06      0.8106
+    mage18                      1    0.0833          0.3478       -0.5983        0.7650             0.06      0.8106
+    mage19                      1    0.0833          0.3478       -0.5983        0.7650             0.06      0.8106
+    mage20                      1    0.0833          0.3478       -0.5983        0.7650             0.06      0.8106
+    mage21                      1    0.0000          0.3849       -0.7544        0.7544             0.00      1.0000
+    mage22                      1    0.0000          0.3849       -0.7544        0.7544             0.00      1.0000
+    mage23                      1    0.0000          0.3849       -0.7544        0.7544             0.00      1.0000
+    mage24                      1    0.0000          0.3849       -0.7544        0.7544             0.00      1.0000
+    mage25                      1    0.0000          0.3849       -0.7544        0.7544             0.00      1.0000
+    mage27                      1    0.0000          0.3849       -0.7544        0.7544             0.00      1.0000
+    mage28                      1    0.0000          0.3849       -0.7544        0.7544             0.00      1.0000
+    mage29                      1    0.0000          0.3849       -0.7544        0.7544             0.00      1.0000
+    mage30                      1    0.0000          0.3849       -0.7544        0.7544             0.00      1.0000
+    mage31                      1    0.0000          0.3849       -0.7544        0.7544             0.00      1.0000
+    mage32                      1    0.0000          0.3849       -0.7544        0.7544             0.00      1.0000
+    mage33                      1    0.0000          0.3849       -0.7544        0.7544             0.00      1.0000
+    mage34                      1    0.0000          0.3849       -0.7544        0.7544             0.00      1.0000
+    mage35                      1    0.0000          0.3849       -0.7544        0.7544             0.00      1.0000
+    mage36                      1    0.0000          0.3849       -0.7544        0.7544             0.00      1.0000
+    mage37                      1    0.0000          0.3849       -0.7544        0.7544             0.00      1.0000
+    mage38                      1    0.0000          0.3849       -0.7544        0.7544             0.00      1.0000
+    mage39                      1    0.0000          0.3849       -0.7544        0.7544             0.00      1.0000
+    mage40                      1    0.0000          0.3849       -0.7544        0.7544             0.00      1.0000
+    mage41                      1    0.0000          0.3849       -0.7544        0.7544             0.00      1.0000
+    mage42                      1    0.0000          0.3849       -0.7544        0.7544             0.00      1.0000
+    mage43                      1    0.0000          0.3849       -0.7544        0.7544             0.00      1.0000
+    mage44                      1    0.0000          0.3849       -0.7544        0.7544             0.00      1.0000
+    Scale                       0    1.0000          0.0000        1.0000        1.0000                             
+
+                                       Note: The scale parameter was held fixed.
+
+                                         Criteria For Assessing Goodness Of Fit        
+
+                                 Criterion                       DF     Value  Value/DF
+                                 ------------------------  --------  --------  --------
+                                 Deviance                        69  123.1488    1.7848
+                                 Scaled Deviance                 69  123.1488    1.7848
+                                 Pearson Chi-Square              69  100.0000    1.4493
+                                 Scaled Pearson X2               69  100.0000    1.4493
+                                 Log Likelihood                      -61.5744          
+                                 Full Log Likelihood                 -61.5744          
+                                 AIC (smaller is better)             185.1488          
+                                 AICC (smaller is better)            214.3253          
+                                 BIC (smaller is better)             265.9091          
+
+                                                                   Contrast Estimate Results                                                                   
+
+                                            Mean Confidence Limits                                             L'Beta Confidence Limits
+Label                        Mean Estimate       Lower       Upper  L'Beta Estimate  Standard Error     Alpha        Lower        Upper  Chi-Square  Pr > ChiSq
+---------------------------  -------------  ----------  ----------  ---------------  --------------  --------  -----------  -----------  ----------  ----------
+Risk of preterm (age 18)            0.7500      0.3257      1.1743           0.7500          0.2165      0.05       0.3257       1.1743       12.00      0.0005
+Risk of preterm (age 26)            0.6667      0.1332      1.2001           0.6667          0.2722      0.05       0.1332       1.2001        6.00      0.0143
+Crude RD, age 18 vs. age 26         0.0833     -0.5983      0.7650           0.0833          0.3478      0.05      -0.5983       0.7650        0.06      0.8106

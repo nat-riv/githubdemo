@@ -1,0 +1,20 @@
+data ages;
+  array m{44} mage1-mage44;
+  do i = 1 to 100;
+    age = 14 + mod(i-1,31);
+    do j = 1 to 44; m{j} = (j = age); end;
+    preterm = (floor((i-1)/31) = 0);
+    output;
+  end;
+  drop i j age;
+run;
+
+*Pull request example;
+ PROC GENMOD data =ages ;
+MODEL preterm = mage14 - mage25 mage27-mage44 / link = identity dist = binomial;
+	OUTPUT OUT=a1_1 pred = pred l = l95 u = u95;
+	title 'Linear Risk Model for 31 Categories of Age';
+	estimate 'Risk of preterm (age 18)' intercept 1 mage18 1;*need to look at age 16, not 18;
+	estimate 'Risk of preterm (age 26)' intercept 1 ;
+	estimate 'Crude RD, age 18 vs. age 26' intercept 0 mage18 1;
+run;
